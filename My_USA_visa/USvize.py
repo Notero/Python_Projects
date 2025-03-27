@@ -13,20 +13,21 @@ email = "" #input user email
 password = "" #input user password
 
 # Create a web driver
-service = Service(absolute_path="/Users/akin/PycharmProjects/PythonProject1/chromedriver")
+service = Service(absolute_path="") #insert the webdrivers absolute path between the quotation marks
 driver = webdriver.Chrome(service=service)
 
-# Get the visa page for the US visa
+# Gets the Turkish visa consulates aplication page by default 
+# change the link to the consulate website you are using
 driver.get("https://ais.usvisa-info.com/en-tr/niv/users/sign_in")
 
 # Wait for the element with ID 'user_email' to appear
 WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.ID, "user_email")))
 
-# Enter email
+# Enters email
 input_email = driver.find_element(By.ID, "user_email")
 input_email.send_keys(email)
 
-# Enter password
+# Enters password
 input_password = driver.find_element(By.ID, "user_password")
 input_password.send_keys(password)
 
